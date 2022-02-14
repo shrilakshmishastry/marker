@@ -1,5 +1,5 @@
-import FilterDesktop from 'presentational/FilterDesktop';
-import FilterMobile from 'presentational/FilterMobile';
+import FilterDesktop from 'src/presentational/FilterDesktop';
+import FilterMobile from 'src/presentational/FilterMobile';
 import { useEffect, useState } from 'react';
 const LeftNavBar = ({}) => {
 	const [ innerWidth, setinnerWidth ] = useState(0);

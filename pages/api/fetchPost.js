@@ -1,18 +1,18 @@
+import axios from 'axios';
+
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import linkPreviewGenerate from 'link-preview-generator';
-// const getTitle = () =>{
+const jsdom = require('jsdom');
+const linkPreviewGenerator = require('link-preview-generator');
+const { JSDOM } = jsdom;
 
-// 	return ;
-// }
-
-export default async function fetchMeData(req, res) {
+export default async function fetchPost(req, res) {
 	try {
-		const result = await linkPreviewGenerate(req.query.url);
-		res.status(200).json({
-			data: result
-		});
+		const previewData = await linkPreviewGenerator(req.query.url);
+		res.statusCode = 200;
+		res.end(JSON.stringify(previewData));
 	} catch (e) {
 		console.log(e);
-		res.status(404);
+		res.statusCode = 404;
+		res.end();
 	}
 }

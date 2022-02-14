@@ -2,7 +2,7 @@ const data = [
 	{
 		dateOfAdd: '1/Jan/2021',
 		author: 'Shrilakshmi',
-		socialMediaLink: 'https://twitter.com/mhadaily/status/1490612613184634889?s=20&t=nql-P5yulHoJhNjEfSHXeA',
+		socialMediaLink: 'https://twitter.com/amuldotexe/status/1492826076393148416?s=20&t=eq-wZcTH4oxv1cYvJlbL1w',
 		key: 1
 	},
 	{
@@ -16,18 +16,6 @@ const data = [
 		author: 'Shrilakshmi',
 		socialMediaLink: 'https://twitter.com/dwvicy/status/1490724321878482944?s=20&t=PdJlnLjPxWN0rH_nW1Ns8w',
 		key: 3
-	},
-	{
-		dateOfAdd: '4/Jan/2021',
-		author: 'Shrilakshmi',
-		socialMediaLink: 'https://twitter.com/aadil/status/1490574721083068424?s=20&t=PdJlnLjPxWN0rH_nW1Ns8w',
-		key: 4
-	},
-	{
-		dateOfAdd: '5/Jan/2021',
-		author: 'Shrilakshmi',
-		socialMediaLink: 'https://twitter.com/_georgemoller/status/1490733605752123399?s=20&t=PdJlnLjPxWN0rH_nW1Ns8w',
-		key: 5
 	}
 ];
 
