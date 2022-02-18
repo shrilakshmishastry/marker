@@ -1,18 +1,4 @@
-import React, { useState } from 'react';
-import { Row } from 'react-bootstrap';
-import FilterContentRenderer from './FilterContentRenderer';
-
-const openStyle = {
-	position: 'fixed',
-	top: '0vh',
-	left: '0vw',
-	zIindex: '1'
-};
-
-const closeStyle = {
-	display: 'none'
-};
-
+import { Col } from 'react-bootstrap';
 const twitter = (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -69,65 +55,29 @@ const allCollection = (
 	</svg>
 );
 
-const FilterMobile = ({ data, handleClick }) => {
-	const [ modalOpen, setModalOpen ] = useState(false);
-	const body = document.querySelector('body');
-
+const FilterContentRenderer = ({ value, handleClick }) => {
 	return (
-		<React.Fragment>
-			<div
-				style={{
-					position: 'fixed',
-					top: '50vh',
-					left: '80vw',
-					zIndex: '1'
-				}}
-			>
+		<Col md={12} className="filterDesktop">
+			{value.isItLink ? (
 				<button
-					type="button"
-					onClick={() => {
-						setModalOpen(!modalOpen);
-						body.style.overflow = !modalOpen;
-					}}
-					aria-controls="filterMobile"
-					className="btn btn-primary rounded"
+					onClick={() => handleClick(value.title)}
+					className="filterDesktop-link btn btn-white d-flex flex-row"
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="16"
-						height="16"
-						fill="currentColor"
-						className="bi bi-filter-circle"
-						viewBox="0 0 16 16"
-					>
-						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-						<path d="M7 11.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z" />
-					</svg>
+					{value.title.includes('Twitter') ? (
+						twitter
+					) : value.title.includes('Discord') ? (
+						discord
+					) : value.title.includes('LinkedIn') ? (
+						linkedIn
+					) : (
+						allCollection
+					)}
+					<p className=" ms-3">{value.title}</p>
 				</button>
-			</div>
-			<div
-				id="filterMobile"
-				className={modalOpen ? `filterMobile-offcanvas_open` : `filterMobile-offcanvas_hide`}
-				tabIndex={'-1'}
-				style={modalOpen ? openStyle : closeStyle}
-				aria-labelledby="filterMobileLabel"
-			>
-				<Row className=" pt-5 ms-lg-5">
-					{data.map((value) => {
-						return (
-							<FilterContentRenderer
-								handleClick={(value) => {
-									handleClick(value);
-									body.style.overflow = !modalOpen;
-									setModalOpen(false);
-								}}
-								value={value}
-							/>
-						);
-					})}
-				</Row>
-			</div>
-		</React.Fragment>
+			) : (
+				<p className="ms-3 text-secondary fw-bold">{value.title}</p>
+			)}
+		</Col>
 	);
 };
-export default FilterMobile;
+export default FilterContentRenderer;

@@ -1,20 +1,18 @@
-import { Col, Row } from 'react-bootstrap';
-import LeftNavBar from './navbar/LeftNavBar';
+import { Container, Row } from 'react-bootstrap';
+
 import TopNavBar from './navbar/TopNavBar';
 
-const Container = ({ children }) => {
+const ContainerWrapper = ({ children }) => {
 	return (
-		<main>
-			<TopNavBar className="col-md-3" />
-			<Row className="">
-				<Col md={3} className="">
-					<LeftNavBar />
-				</Col>
-				<Col md={9} className="">
-					{children}
-				</Col>
-			</Row>
-		</main>
+		<Container fluid>
+			<main>
+				<Row>
+					<TopNavBar />
+				</Row>
+
+				{children}
+			</main>
+		</Container>
 	);
 };
-export default Container;
+export default ContainerWrapper;

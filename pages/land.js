@@ -6,17 +6,15 @@ import MainComponent from '../src/components/mainComponent/mainComponent';
 const Land = ({ props }) => {
 	console.log(props);
 	return (
-		<Container className="">
-			<Row>
-				{props.data.map((value, index, array) => {
-					return (
-						<Col md={4} className="mainComponent">
-							<MainComponent data={value} />
-						</Col>
-					);
-				})}
-			</Row>
-		</Container>
+		<Row className="">
+			{props.map((value, index, array) => {
+				return (
+					<Col md={6} sm={12} xs={12} lg={4} className="mainComponent mb-md-5 mb-lg-0 mb-0">
+						<MainComponent data={value} />
+					</Col>
+				);
+			})}
+		</Row>
 	);
 };
 

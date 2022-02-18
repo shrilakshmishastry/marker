@@ -6,8 +6,10 @@ const linkPreviewGenerator = require('link-preview-generator');
 const { JSDOM } = jsdom;
 
 export default async function fetchPost(req, res) {
+	console.log('ello');
 	try {
 		const previewData = await linkPreviewGenerator(req.query.url);
+		console.log(previewData);
 		res.statusCode = 200;
 		res.end(JSON.stringify(previewData));
 	} catch (e) {

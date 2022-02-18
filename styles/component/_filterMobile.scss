@@ -1,0 +1,46 @@
+
+.filterMobile-offcanvas_hide{
+	
+	animation-name: animForClose;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.filterMobile-offcanvas_open{
+	
+	animation-name: anim;
+	animation-duration: 1ms;
+	animation-fill-mode: forwards;
+	
+}
+
+@keyframes anim {
+	from{
+		background-color: #ffffff;
+		width: 0vw;
+		height: 90vw;
+		z-index: 1;
+	}
+	to{
+background-color: #ffffff;
+width: 90vw;
+		height: 100vh;
+		z-index: 1;
+	}
+}
+
+@keyframes animForClose {
+	from{
+		background-color: #ffffff;
+width: 80vw;
+		height: 90vh;
+		z-index: 1;
+	}
+	to{
+	background-color: #ffffff;
+		width: 0vw;
+		height: 90vw;
+		z-index: 1;
+		display: none;
+	}
+}

@@ -1,3 +1,6 @@
 @import "globals";
-@import "./component/mainComponent.scss";
+@import "./component/mainComponent";
 @import 'bootstrap/dist/css/bootstrap.min.css';
+@import './component/filterDesktop';
+@import './component/topNavBar';
+@import './component/filterMobile';

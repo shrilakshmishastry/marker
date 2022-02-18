@@ -1,4 +1,13 @@
-const FilterDesktop = () => {
-	return <div className="col-md-4">Filter desktop</div>;
+import { Row } from 'react-bootstrap';
+import FilterContentRenderer from './FilterContentRenderer';
+
+const FilterDesktop = ({ data, handleClick }) => {
+	return (
+		<Row className=" pt-5 ms-lg-5">
+			{data.map((value) => {
+				return <FilterContentRenderer handleClick={(value) => handleClick(value)} value={value} />;
+			})}
+		</Row>
+	);
 };
 export default FilterDesktop;

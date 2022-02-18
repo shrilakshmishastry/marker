@@ -1,4 +1,4 @@
-import Container from 'src/components/Container';
+import ContainerWrapper from 'src/components/Container';
 import '../styles/index.scss';
 import React, { useState, useEffect } from 'react';
 
@@ -14,9 +14,9 @@ function MyApp({ Component, pageProps }) {
 					<div>hello</div>
 				</React.Fragment>
 			) : (
-				<Container>
+				<ContainerWrapper>
 					<Component {...pageProps} />
-				</Container>
+				</ContainerWrapper>
 			)}
 		</React.Fragment>
 	);

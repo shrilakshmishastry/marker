@@ -2,19 +2,19 @@ const data = [
 	{
 		dateOfAdd: '1/Jan/2021',
 		author: 'Shrilakshmi',
-		socialMediaLink: 'https://twitter.com/amuldotexe/status/1492826076393148416?s=20&t=eq-wZcTH4oxv1cYvJlbL1w',
+		socialMediaLink: 'https://discord.com/channels/708526181627985980/708526308606476318/943067708684124230',
 		key: 1
 	},
 	{
 		dateOfAdd: '2/Jan/2021',
 		author: 'Shrilakshmi',
-		socialMediaLink: 'https://twitter.com/Haezurath/status/1490717982741479426?s=20&t=PdJlnLjPxWN0rH_nW1Ns8w',
+		socialMediaLink: 'https://twitter.com/tapasadhikary/status/1493508655433412609',
 		key: 2
 	},
 	{
 		dateOfAdd: '3/Jan/2021',
 		author: 'Shrilakshmi',
-		socialMediaLink: 'https://twitter.com/dwvicy/status/1490724321878482944?s=20&t=PdJlnLjPxWN0rH_nW1Ns8w',
+		socialMediaLink: 'https://www.linkedin.com/posts/jodopay_jodon-jodo-newjodon-activity-6899284266212290560-3cKf',
 		key: 3
 	}
 ];
