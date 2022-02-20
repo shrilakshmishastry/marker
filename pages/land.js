@@ -1,10 +1,15 @@
-import LinkPreview from '@ashwamegh/react-link-preview';
-import { data } from 'data/initilaJobData';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import MainComponent from '../src/components/mainComponent/mainComponent';
 
 const Land = ({ props }) => {
 	console.log(props);
+	if (props.length === 0) {
+		return (
+			<div>
+				<p>No posts yet</p>
+			</div>
+		);
+	}
 	return (
 		<Row className="">
 			{props.map((value, index, array) => {

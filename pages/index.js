@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { data } from 'data/initilaJobData';
+import clientPromise, { dbConnect } from 'lib/mongodb';
 import React, { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import LeftNavBar from 'src/components/navbar/LeftNavBar';
@@ -66,7 +67,7 @@ export default function Home(props) {
 
 async function fetchMeData(val) {
 	try {
-		const result = await axios.get('http://172.28.108.189:3000/api/fetchPost', {
+		const result = await axios.get('http://172.28.101.99:3000/api/fetchPost', {
 			params: {
 				url: val
 			}
@@ -78,13 +79,22 @@ async function fetchMeData(val) {
 }
 
 export async function getServerSideProps(context) {
-	let value = [];
-	for (let i = 0; i < data.length; i++) {
-		const result = await fetchMeData(data[i].socialMediaLink);
-		const val = { ...result, ...data[i] };
-		value.push(val);
+	let value;
+	try {
+		const link = await dbConnect();
+		// console.log('connected');
+
+		value = await axios.get('http://172.28.101.99:3000/api/fetchInitialData');
+	} catch (e) {
+		console.log(e);
+		value = [];
 	}
+	// for (let i = 0; i < data.length; i++) {
+	// 	const result = await fetchMeData(data[i].socialMediaLink);
+	// 	const val = { ...result, ...data[i] };
+	// 	value.push(val);
+	// }
 	return {
-		props: { data: value }
+		props: { data: value.data }
 	};
 }

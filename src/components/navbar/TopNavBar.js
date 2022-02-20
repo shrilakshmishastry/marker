@@ -6,6 +6,7 @@ const linkStyle = 'me-lg-5  text-center mb-3 mb-lg-0';
 
 const TopNavBar = () => {
 	const router = useRouter();
+
 	return (
 		<Navbar bg="white" className="topNavBar shadow-sm" expand="lg">
 			<Container className="topNavBar-container">
@@ -25,15 +26,45 @@ const TopNavBar = () => {
 							</a>
 						</Link>
 						<Link href={'/recentPost'}>
-							<a className={linkStyle}>Recent</a>
+							<a
+								className={
+									router.pathname === '/recentPost' ? (
+										`topNavBar-collapseContent-link ${linkStyle}`
+									) : (
+										linkStyle
+									)
+								}
+							>
+								Recent
+							</a>
 						</Link>
 						<Link href={'/favorite'}>
-							<a className={linkStyle}>Favorite</a>
+							<a
+								className={
+									router.pathname === '/favorite' ? (
+										`topNavBar-collapseContent-link ${linkStyle}`
+									) : (
+										linkStyle
+									)
+								}
+							>
+								Favorite
+							</a>
 						</Link>
 					</Nav>
-					<Nav className="ms-auto">
+					<Nav className="ms-auto topNavBar-collapseContent">
 						<Link href={'/profile'}>
-							<a className={linkStyle}>Profile</a>
+							<a
+								className={
+									router.pathname === '/profile' ? (
+										`topNavBar-collapseContent-link ${linkStyle}`
+									) : (
+										linkStyle
+									)
+								}
+							>
+								Profile
+							</a>
 						</Link>
 					</Nav>
 				</Navbar.Collapse>
