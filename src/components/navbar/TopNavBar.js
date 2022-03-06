@@ -1,75 +1,46 @@
 import Link from 'next/link';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-
+import { Container, Modal, Nav, Navbar } from 'react-bootstrap';
+import NavLinkGenerator from 'src/presentational/NavLinkGenerator';
+import { useCookies } from 'react-cookie';
+import ModalBase from '../LoginSignUpModal/ModalBase';
 const linkStyle = 'me-lg-5  text-center mb-3 mb-lg-0';
 
 const TopNavBar = () => {
 	const router = useRouter();
+	const [ cookies, setCookies, removeCookies ] = useCookies();
+	const [ showModal, setshowModal ] = useState(false);
 
+	const cookiePresentOrNot = Object.keys(cookies).includes('user');
 	return (
-		<Navbar bg="white" className="topNavBar shadow-sm" expand="lg">
-			<Container className="topNavBar-container">
-				<Link href={'/'}>
-					<Navbar.Brand>Marker</Navbar.Brand>
-				</Link>
-				<Navbar.Toggle aria-controls="marker_navbar" />
-				<Navbar.Collapse className="" id="marker_navbar ">
-					<Nav className="ms-auto topNavBar-collapseContent">
-						<Link href={'/'}>
-							<a
-								className={
-									router.pathname === '/' ? `topNavBar-collapseContent-link ${linkStyle}` : linkStyle
-								}
-							>
-								Home
-							</a>
-						</Link>
-						<Link href={'/recentPost'}>
-							<a
-								className={
-									router.pathname === '/recentPost' ? (
-										`topNavBar-collapseContent-link ${linkStyle}`
-									) : (
-										linkStyle
-									)
-								}
-							>
-								Recent
-							</a>
-						</Link>
-						<Link href={'/favorite'}>
-							<a
-								className={
-									router.pathname === '/favorite' ? (
-										`topNavBar-collapseContent-link ${linkStyle}`
-									) : (
-										linkStyle
-									)
-								}
-							>
-								Favorite
-							</a>
-						</Link>
-					</Nav>
-					<Nav className="ms-auto topNavBar-collapseContent">
-						<Link href={'/profile'}>
-							<a
-								className={
-									router.pathname === '/profile' ? (
-										`topNavBar-collapseContent-link ${linkStyle}`
-									) : (
-										linkStyle
-									)
-								}
-							>
-								Profile
-							</a>
-						</Link>
-					</Nav>
-				</Navbar.Collapse>
-			</Container>
-		</Navbar>
+		<React.Fragment>
+			<ModalBase showModal={showModal} handleModalClose={() => setshowModal(false)} />
+			<Navbar bg="white" className="topNavBar shadow-sm" expand="lg">
+				<Container className="topNavBar-container">
+					<Link href={'/'}>
+						<Navbar.Brand>Marker</Navbar.Brand>
+					</Link>
+					<Navbar.Toggle aria-controls="marker_navbar" />
+					<Navbar.Collapse className="" id="marker_navbar ">
+						<Nav className="ms-auto topNavBar-collapseContent">
+							<NavLinkGenerator link={'/'} title="Home" />
+							<NavLinkGenerator link={'/recentPost'} title="Recent" />
+							<NavLinkGenerator link={'/favorite'} title="Favorite" />
+						</Nav>
+						<Nav className="ms-auto topNavBar-collapseContent">
+							{cookiePresentOrNot ? (
+								<NavLinkGenerator link={'/profile'} title="Profile" />
+							) : (
+								<button onClick={() => setshowModal(true)} className="btn btn-primary">
+									Login
+								</button>
+							)}
+						</Nav>
+					</Navbar.Collapse>
+				</Container>
+			</Navbar>
+		</React.Fragment>
 	);
 };
 export default TopNavBar;

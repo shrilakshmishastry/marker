@@ -67,7 +67,7 @@ export default function Home(props) {
 
 async function fetchMeData(val) {
 	try {
-		const result = await axios.get('http://172.28.101.99:3000/api/fetchPost', {
+		const result = await axios.get('http:// 172.19.149.61:3000/api/fetchPost', {
 			params: {
 				url: val
 			}
@@ -82,9 +82,9 @@ export async function getServerSideProps(context) {
 	let value;
 	try {
 		const link = await dbConnect();
-		// console.log('connected');
+		console.log('connected');
 
-		value = await axios.get('http://172.28.101.99:3000/api/fetchInitialData');
+		value = await axios.get('http://172.29.117.233:3000/api/fetchInitialData');
 	} catch (e) {
 		console.log(e);
 		value = [];
@@ -94,7 +94,13 @@ export async function getServerSideProps(context) {
 	// 	const val = { ...result, ...data[i] };
 	// 	value.push(val);
 	// }
-	return {
-		props: { data: value.data }
-	};
+	if (Array.isArray(value)) {
+		return {
+			props: { data: value }
+		};
+	} else {
+		return {
+			props: { data: value.data }
+		};
+	}
 }

@@ -6,7 +6,6 @@ import Image from 'next/image';
 import moment from 'moment';
 
 const MainComponent = ({ data }) => {
-	console.log(data.socialMediaLink.split('.com')[0].split('https://www.')[1]);
 	return (
 		<Card className=" mainComponent-card rounded shadow-sm">
 			{/* {data.img && !data.img.includes('undefined') ? (

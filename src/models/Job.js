@@ -1,3 +1,4 @@
+// import moment from 'moment';
 import mongoose from 'mongoose';
 
 const JobSchema = new mongoose.Schema({
@@ -18,5 +19,11 @@ const JobSchema = new mongoose.Schema({
 		required: [ true, 'Please provide the title' ]
 	}
 });
+// JobSchema.index(
+// 	{ expire_at: 1 },
+// 	{
+// 		expireAfterSeconds: 0
+// 	}
+// );
 
 export default mongoose.models.Job || mongoose.model('Job', JobSchema);

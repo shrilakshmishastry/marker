@@ -113,9 +113,10 @@ const FilterMobile = ({ data, handleClick }) => {
 				aria-labelledby="filterMobileLabel"
 			>
 				<Row className=" pt-5 ms-lg-5">
-					{data.map((value) => {
+					{data.map((value, index) => {
 						return (
 							<FilterContentRenderer
+								key={`${index}filterMobile`}
 								handleClick={(value) => {
 									handleClick(value);
 									body.style.overflow = !modalOpen;

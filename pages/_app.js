@@ -1,6 +1,7 @@
 import ContainerWrapper from 'src/components/Container';
 import '../styles/index.scss';
 import React, { useState, useEffect } from 'react';
+import { CookiesProvider } from 'react-cookie';
 
 function MyApp({ Component, pageProps }) {
 	const [ loading, setLoading ] = useState(true);
@@ -14,9 +15,11 @@ function MyApp({ Component, pageProps }) {
 					<div>hello</div>
 				</React.Fragment>
 			) : (
-				<ContainerWrapper>
-					<Component {...pageProps} />
-				</ContainerWrapper>
+				<CookiesProvider>
+					<ContainerWrapper>
+						<Component {...pageProps} />
+					</ContainerWrapper>
+				</CookiesProvider>
 			)}
 		</React.Fragment>
 	);
