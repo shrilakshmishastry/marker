@@ -65,26 +65,13 @@ export default function Home(props) {
 	);
 }
 
-async function fetchMeData(val) {
-	try {
-		const result = await axios.get('http://172.24.148.27:3000/api/fetchPost', {
-			params: {
-				url: val
-			}
-		});
-		return result.data;
-	} catch (e) {
-		return 'error';
-	}
-}
-
 export async function getServerSideProps(context) {
 	let value;
 	try {
 		const link = await dbConnect();
 		console.log('connected');
 
-		value = await axios.get('http://172.24.151.27:3000/api/fetchInitialData');
+		value = await axios.get('http://localhost:3000/api/fetchInitialData');
 	} catch (e) {
 		console.log(e);
 		value = [];
