@@ -1,4 +1,5 @@
 import { dbConnect } from 'lib/mongodb';
+import transporter from 'lib/transporterObjectNodeMailer';
 import TemprorayUserLoginData from 'src/models/TemprorayUserLoginData';
 import User from 'src/models/User';
 const jwt = require('jsonwebtoken');
@@ -35,7 +36,30 @@ const UserSignUpHandle = async (req, res) => {
 				token
 			});
 			const addTempUser = await userTemp.save();
-
+			transporter.verify(function(error, success) {
+				console.log('hello');
+				if (error) {
+					console.log(error);
+				} else {
+					console.log('success');
+				}
+			});
+			const emailUser = 'shrilakshmishastry@gmail.com';
+			const message = 'Hello world';
+			const content = `email : ${email}\n message :${message}`;
+			const mail = {
+				from: 'shrilakshmishastry@gmail.com',
+				to: 'shrilakshmishastry@gmail.com',
+				message: 'Verify me',
+				text: content
+			};
+			transporter.sendMail(mail, (err, data) => {
+				if (err) {
+					console.log(err);
+				} else {
+					console.log(data);
+				}
+			});
 			res.statusCode = 200;
 			res.end(JSON.stringify('accepted'));
 		} catch (e) {

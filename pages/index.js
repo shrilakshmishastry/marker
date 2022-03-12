@@ -67,7 +67,7 @@ export default function Home(props) {
 
 async function fetchMeData(val) {
 	try {
-		const result = await axios.get('http:// 172.19.149.61:3000/api/fetchPost', {
+		const result = await axios.get('http://172.24.148.27:3000/api/fetchPost', {
 			params: {
 				url: val
 			}
@@ -84,7 +84,7 @@ export async function getServerSideProps(context) {
 		const link = await dbConnect();
 		console.log('connected');
 
-		value = await axios.get('http://172.29.117.233:3000/api/fetchInitialData');
+		value = await axios.get('http://172.24.151.27:3000/api/fetchInitialData');
 	} catch (e) {
 		console.log(e);
 		value = [];
