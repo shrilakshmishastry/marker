@@ -13,6 +13,7 @@
     "cookie": "^0.4.2",
     "dotenv": "^16.0.0",
     "formik": "^2.2.9",
+    "iron-session": "^6.0.5",
     "jsdom": "^19.0.0",
     "jsonwebtoken": "^8.5.1",
     "link-preview-generator": "^1.0.7",

@@ -1,7 +1,55 @@
 @import "globals";
-@import './variables/colors';
-@import "./component/mainComponent";
-@import 'bootstrap/dist/css/bootstrap.min.css';
-@import './component/filterDesktop';
-@import './component/topNavBar';
-@import './component/filterMobile';
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+:root {
+  --primary_color: #00006d;
+  --secondary_color: #29cbf4;
+  --primary_color_navbar: #00006d;
+  --primary_color_not_high_light: #00006d;
+  --primary_color_light: #d0cef3;
+  --gray_color: #bac0ca;
+  --light_color: #fbfbfc;
+  --ternary_dark_color: #9f648d;
+  --ternary_light_color: #baacd0;
+  --dark_color: #3b3c44;
+}
+
+html[data-theme="light"] {
+  body {
+    background-color: #ffffff;
+  }
+
+  --primary_color: #00006d;
+  --primary_color_navbar: #00006d;
+  --primary_color_not_high_light: #00006d;
+  --primary_color_light: #d0cef3;
+  --secondary_color: #29cbf4;
+  --gray_color: #bac0ca;
+  --light_color: #fbfbfc;
+  --ternary_dark_color: #9f648d;
+  --ternary_light_color: #baacd0;
+  --dark_color: #3b3c44;
+}
+
+html[data-theme="dark"] {
+  body {
+    background-color: #1a1a1a;
+  }
+  --primary_color: #00006d;
+  --primary_color_navbar: #ffffff;
+  --primary_color_not_high_light: #00006d;
+  --primary_color_light: #00006d;
+  --secondary_color: #29cbf4;
+  --gray_color: #bac0ca;
+  --light_color: #3b3c44;
+  --ternary_dark_color: #9f648d;
+  --ternary_light_color: #baacd0;
+  --dark_color: #fbfbfc;
+}
+
+@import "../styles/component/filterDesktop";
+@import "../styles/component/filterMobile";
+@import "../styles/component/mainComponent";
+@import "../styles/component/topNavBar";
+@import "../styles/component/leftNavBar";
+@import "../styles/component/land";

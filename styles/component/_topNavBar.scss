@@ -1,11 +1,18 @@
-.topNavBar{
-  .topNavBar-container{
-    .topNavBar-collapseContent{
-    .topNavBar-collapseContent-link{
-      color: $primary_color;
-      font-weight: bold;
+.topNavBar {
+  .topNavBar-container {
+    .topNavBar-collapseContent {
+      color: var(--dark_color);
+      .topNavBar-collapseContent-link {
+        color: var(--primary_color_navbar);
+        font-weight: bold;
+      }
     }
   }
+  .brandLeadingText {
+    color: var(--primary_color);
+    font-weight: bold;
   }
-  
+  .brandText {
+    color: var(--dark_color);
+  }
 }

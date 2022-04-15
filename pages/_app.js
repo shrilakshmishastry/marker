@@ -1,28 +1,32 @@
-import ContainerWrapper from 'src/components/Container';
-import '../styles/index.scss';
-import React, { useState, useEffect } from 'react';
-import { CookiesProvider } from 'react-cookie';
+import ContainerWrapper from "src/components/Container";
+import React, { useState, useEffect } from "react";
+import { CookiesProvider } from "react-cookie";
+import "../styles/index.scss";
+import {
+  useGetLocalStorage,
+  useSetLocalStorage,
+} from "src/customhooks/getLocalStorage";
 
 function MyApp({ Component, pageProps }) {
-	const [ loading, setLoading ] = useState(true);
-	useEffect(() => {
-		setLoading(false);
-	}, []);
-	return (
-		<React.Fragment>
-			{loading ? (
-				<React.Fragment>
-					<div>hello</div>
-				</React.Fragment>
-			) : (
-				<CookiesProvider>
-					<ContainerWrapper>
-						<Component {...pageProps} />
-					</ContainerWrapper>
-				</CookiesProvider>
-			)}
-		</React.Fragment>
-	);
+  const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState("light");
+  useEffect(() => {
+    setLoading(false);
+    console.log(theme, useGetLocalStorage());
+  }, [theme]);
+  return (
+    <React.Fragment>
+      {loading ? (
+        <React.Fragment>
+          <div>hello</div>
+        </React.Fragment>
+      ) : (
+        <ContainerWrapper themeSwitcher={(theme) => setTheme(theme)}>
+          <Component {...pageProps} />
+        </ContainerWrapper>
+      )}
+    </React.Fragment>
+  );
 }
 
 export default MyApp;
