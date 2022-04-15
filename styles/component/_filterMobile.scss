@@ -1,0 +1,50 @@
+.filterMobile-offcanvas_hide {
+  animation-name: animForClose;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.filterMobile-offcanvas_open {
+  background-color: green;
+  animation-name: anim;
+  animation-duration: 1ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes anim {
+  from {
+    background-color: var(--light_color);
+    width: 0vw;
+    height: 90vw;
+    z-index: 1;
+  }
+  to {
+    background-color: var(--light_color);
+    width: 90vw;
+    height: 100vh;
+    z-index: 1;
+  }
+}
+
+@keyframes animForClose {
+  from {
+    background-color: var(--light_color);
+    width: 80vw;
+    height: 90vh;
+    z-index: 1;
+  }
+  to {
+    background-color: var(--light_color);
+    width: 0vw;
+    height: 90vw;
+    z-index: 1;
+    display: none;
+  }
+}
+
+.hideController {
+  background-color: var(--primary_color_light);
+}
+.hideControllerIcon {
+  color: var(--primary_color_navbar);
+}

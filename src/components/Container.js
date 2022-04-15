@@ -1,15 +1,17 @@
-import LeftNavBar from './navbar/LeftNavBar';
-import TopNavBar from './navbar/TopNavBar';
+import { Container, Row } from "react-bootstrap";
 
-const Container = ({ children }) => {
-	return (
-		<main>
-			<TopNavBar />
-			<div>
-				<LeftNavBar />
-				{children}
-			</div>
-		</main>
-	);
+import TopNavBar from "./navbar/TopNavBar";
+
+const ContainerWrapper = ({ children, themeSwitcher }) => {
+  return (
+    <Container fluid>
+      <main>
+        <Row>
+          <TopNavBar themeSwitcher={(theme) => themeSwitcher(theme)} />
+        </Row>
+        {children}
+      </main>
+    </Container>
+  );
 };
-export default Container;
+export default ContainerWrapper;

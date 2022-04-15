@@ -1,0 +1,13 @@
+.filterDesktop {
+  .filterDesktop-link {
+    font-size: medium;
+    color: var(--dark_color);
+    &:hover {
+      color: var(--primary_color_not_high_light);
+    }
+  }
+  .highlight {
+    background-color: var(--primary_color_light);
+    color: var(--primary_color_navbar);
+  }
+}

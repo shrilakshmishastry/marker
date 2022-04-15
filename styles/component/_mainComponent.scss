@@ -1,0 +1,38 @@
+.mainComponent-card {
+  height: 100%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light_color);
+  color: var(--dark_color);
+
+  .mainComponent-card-img {
+    height: 24vh;
+    width: 100%;
+  }
+  .mainComponent-card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--dark_color);
+  }
+  .mainComponent-card-link {
+    color: var(--dark_color);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mainComponent-card {
+    height: 40vh;
+    width: 93vw;
+    margin-bottom: 5vh;
+    color: var(--dark_color);
+    .mainComponent-card-img {
+      height: 25vh;
+      width: 93vw;
+    }
+  }
+}
